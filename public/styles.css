@@ -1,0 +1,149 @@
+:root {
+    --accent: #2b7a78;
+    --bg: #f7f7f8;
+    --text: #222;
+}
+
+* {
+    box-sizing: border-box
+}
+
+body {
+    font-family: Inter, Segoe UI, Arial;
+    line-height: 1.4;
+    color: var(--text);
+    background: pink;
+    margin: 0
+}
+
+.site-header {
+    background: #fff;
+    padding: 16px 20px;
+    border-bottom: 1px solid #e6e6e6;
+    display: flex;
+    justify-content: space-between;
+    align-items: center
+}
+
+.site-header h1 {
+    margin: 0;
+    font-size: 1.1rem
+}
+
+.site-header a {
+    color: var(--accent);
+    text-decoration: none;
+}
+
+main {
+    max-width: 760px;
+    margin: 24px auto;
+    padding: 0 16px
+}
+
+.posts-list .post {
+    background: #fff;
+    padding: 14px;
+    border-radius: 6px;
+    margin-bottom: 12px;
+    border: 1px solid #eee
+}
+
+.post h2 {
+    margin: 0 0 6px 0
+}
+
+.post time {
+    font-size: 0.85rem;
+    color: #666
+}
+
+form label {
+    display: block;
+    margin-bottom: 12px
+}
+
+input[type=text],
+textarea {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ddd;
+    border-radius: 6px
+}
+
+
+.site-footer {
+    padding: 16px;
+    text-align: center;
+    color: #666
+}
+.site-header nav{
+    display: flex;
+    gap: 30px;
+    /* flex-direction: column; */
+}
+
+.edit-post{
+    background-color: #fff;
+}
+.post-detail{
+    background-color: #fff;
+    padding: 5px;
+    padding-left: 40px;
+    border-radius: 5px;
+    position: relative;
+    padding-bottom: 50px; /* space for bottom-right button */
+    overflow: visible;
+}
+.edit-post{
+    background-color: #fff;
+    padding: 15px;
+    padding-top: 5px;
+    border-radius: 5px;
+}
+
+.delete-action {
+    position: absolute;
+    right: 40px;
+    bottom: 35px;
+    margin: 0;
+    z-index: 10;
+}
+.delete-action form {
+    display: block;
+}
+
+/* Ensure long post content wraps and can scroll internally */
+.content {
+    max-height: 60vh;
+    overflow: auto;
+}
+.content pre {
+    white-space: pre-wrap;
+    word-break: break-word;
+    align-items: center;
+}
+
+.post-actions .action-link {
+    background: var(--accent);
+    color: #fff;
+    padding: 8px 14px;
+    border-radius: 6px;
+    text-decoration: none;
+    display: inline-block;
+}
+button {
+    background: var(--accent);
+    color: #fff;
+    padding: 8px 14px;
+    border-radius: 6px;
+    border: 0
+}
+
+.post-details{
+    display: flex;
+    flex-direction: column;
+}
+.delete-button{
+    background-color: rgb(227, 68, 68);
+}
