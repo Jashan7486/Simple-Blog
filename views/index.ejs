@@ -1,0 +1,17 @@
+<%- include('partials/header') %>
+
+<section class="posts-list">
+  <% if (posts.length === 0) { %>
+    <p>No posts yet. <a href="/posts/new">Create the first post</a>.</p>
+  <% } else { %>
+    <% posts.forEach(function(post){ %>
+      <article class="post">
+        <h2><a href="/posts/<%= post.id %>"><%= post.title %></a></h2>
+        <time><%= new Date(post.createdAt).toLocaleString() %></time>
+        <p><%= post.content.length > 250 ? post.content.substring(0,250) + '…' : post.content %></p>
+      </article>
+    <% }) %>
+  <% } %>
+</section>
+
+<%- include('partials/footer') %>

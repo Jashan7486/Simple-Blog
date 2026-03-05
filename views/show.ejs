@@ -1,0 +1,25 @@
+<%- include('partials/header') %>
+
+<article class="post-detail">
+  <h2><%= post.title %></h2>
+  <time><%= new Date(post.createdAt).toLocaleString() %></time>
+  <div class="content"><pre><%= post.content %></pre></div>
+
+  <div class="post-details">
+    <div class="post-actions">
+      <a href="/posts/<%= post.id %>/edit" class="action-link edit-button">Edit</a>
+      <a href="/" class="action-link">Back</a>
+    </div>
+    <div class="delete-action">
+      <form action="/posts/<%= post.id %>?_method=DELETE" method="post">
+        <input type="hidden" name="_method" value="DELETE" />
+        <button type="submit" class="delete-button" onclick="return confirm('Delete this post?')">Delete</button>
+      </form>
+    </div>
+  </div>
+</article>
+
+<%- include('partials/footer') %>
+
+
+
