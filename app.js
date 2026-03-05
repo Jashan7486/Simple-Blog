@@ -108,5 +108,11 @@ app.delete('/posts/:id', (req, res) => {
     res.redirect('/');
 });
 
-const PORT = process.env.PORT || 3000;
-app.listen(PORT, () => console.log(`Simple Blog running at http://localhost:${PORT}`));
+// Export the app for use as a Netlify Function
+module.exports = app;
+
+// Start local server only when run directly (not imported)
+if (require.main === module) {
+    const PORT = process.env.PORT || 3000;
+    app.listen(PORT, () => console.log(`Simple Blog running at http://localhost:${PORT}`));
+}
