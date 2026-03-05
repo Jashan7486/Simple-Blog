@@ -25,4 +25,4 @@ Files added
 - `public/styles.css`: basic styling
 - `data/posts.json`: persisted posts (JSON)
 
-Next steps (future): add editing and deletion endpoints and UI.
+
