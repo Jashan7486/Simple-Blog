@@ -3,6 +3,8 @@ const path = require('path');
 const fs = require('fs');
 const { v4: uuidv4 } = require('uuid');
 const methodOverride = require('method-override');
+// Explicit require so esbuild bundles ejs for Netlify Functions
+require('ejs');
 
 const DATA_DIR = path.join(__dirname, 'data');
 const DATA_FILE = path.join(DATA_DIR, 'posts.json');
@@ -108,5 +110,11 @@ app.delete('/posts/:id', (req, res) => {
     res.redirect('/');
 });
 
-const PORT = process.env.PORT || 3000;
-app.listen(PORT, () => console.log(`Simple Blog running at http://localhost:${PORT}`));
+// Export the app for use as a Netlify Function
+module.exports = app;
+
+// Start local server only when run directly (not imported)
+if (require.main === module) {
+    const PORT = process.env.PORT || 3000;
+    app.listen(PORT, () => console.log(`Simple Blog running at http://localhost:${PORT}`));
+}
